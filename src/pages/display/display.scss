@@ -1,0 +1,93 @@
+page-display {
+    .header{
+        height: 35%;
+    }
+
+    .item{
+        background-color:#3F3F3F;
+        height: 7vh;
+        text-align: center;
+    }
+    #but{
+        float: right;
+        background-color:#222;
+        width: 50%;
+        height: 7vh;
+        color: white;
+        text-align: center;
+        font-size: 2.5vh;
+        text-transform: uppercase;
+
+    }
+    #details{
+        float: left;
+        background-color: #0B2B35;
+        width: 50%;
+        height: 7vh;
+        color: white;
+    }
+    .line{
+    font-size: 1px;
+    }
+
+    .item2{
+        background-color:#222;
+        height: 9vh;
+        text-align: center;
+ 
+    }
+    #but2{
+        float: right;
+        background-color:#0F3746;
+        width: 50%;
+        height: 9vh;
+        color: white;
+        text-align: center;
+        font-size: 3vh;
+        position: relative;
+    }
+    #details2{
+        float: left;
+        background-color: #0B2B35;
+        width: 50%;
+        height: 9vh;
+        color: white;
+    }
+    h1{
+        text-transform: uppercase;
+        font-size: 11.5px;
+        float: right;
+        margin-right: 5px;
+    }
+
+    .item4{
+        background-color: rgb(49, 46, 46);
+        height: 28vh;
+        margin: 0 auto;
+        text-align: center;
+        align-content: center;
+        
+    }
+    #but4{
+        width: 50%;
+        height: 7vh;
+        color: rgb(24, 13, 13);
+        font-size: 1.5vh;
+        text-transform: capitalize;
+        color: white;
+        text-align: center;
+        align-content: center;
+        margin: 0 auto;
+
+    }
+    #details4{
+
+    float: right;
+        height: 7vh;
+        color: rgb(24, 13, 13);
+        text-align: center;
+    }
+    h6{
+        font-size: 13px;
+    }
+}

@@ -1,0 +1,55 @@
+<!--
+  Generated template for the RegisterPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+
+
+<ion-header style="background-color: #222;" no-border>
+    <div end style="float: right; color:#73a76f; font-size: 15px" (click)="SignUp()">
+          Sign In
+    </div>
+    <div class="headerText">
+    <p class="text">Register</p>
+  </div>
+</ion-header>
+
+<ion-content style="background-color: #222;" padding>
+    <div class="lists">
+        <ion-item>
+          <ion-input type="text" [(ngModel)]="userReg.email" placeholder="Email"></ion-input>
+        </ion-item>
+      
+        <ion-item>
+          <ion-input type="password" [(ngModel)]="userReg.password" placeholder="Password"></ion-input>
+        </ion-item>
+
+        <ion-item>
+            <ion-input type="text" [(ngModel)]="userReg.name" placeholder="Name"></ion-input>
+          </ion-item>
+
+          <ion-item>
+              <ion-input type="text" [(ngModel)]="userReg.surname" placeholder="Surname"></ion-input>
+            </ion-item>
+
+            <ion-item>
+                <ion-input type="text" [(ngModel)]="userReg.id" placeholder="ID No"></ion-input>
+              </ion-item>
+            
+              <ion-item>
+                  <ion-input type="text" [(ngModel)]="userReg.phone" placeholder="Phone No"></ion-input>
+                </ion-item>
+                
+              <ion-item>
+                  <ion-input type="text" [(ngModel)]="userReg.address" placeholder="Address"></ion-input>
+                </ion-item>
+              </div>
+     
+</ion-content>
+<ion-footer>
+    <div class="log">
+
+        <button ion-button color="dark" (click)=" register()" class="button1">Go!</button>
+      </div>
+</ion-footer>

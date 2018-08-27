@@ -1,0 +1,101 @@
+<!--
+  Generated template for the DisplayPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+    <ion-slides pager>
+
+        <ion-slide>
+          <img [src]="pic1">
+        </ion-slide>
+      
+        <ion-slide>
+            <img [src]="pic2">
+        </ion-slide>
+      
+        <ion-slide>
+            <img [src]="pic3">
+        </ion-slide>
+      
+      </ion-slides>
+
+</ion-header>
+
+
+<ion-content style="background-color:#222;">
+<div class="item" (click)="hide()">
+    <div id="details">
+    <h1>Room Type:</h1>
+  </div>
+    <div id="but">
+       <p>{{roomtyrpe}}</p>
+  </div>
+</div>
+
+<div class={{style}} *ngIf="hideMe">
+<div class="item4" >
+    <div id="but4">
+       <p style="text-align: center;">{{details}}</p> 
+  </div>
+</div>
+</div>
+
+<hr class="line">
+
+<div class="item">
+
+    <div id="details">
+    <h1>Quantity:</h1>
+  </div>
+    <div id="but">
+        <ion-datetime displayFormat= "D"  max="2018-03-03" [(ngModel)]="qun"></ion-datetime>
+  </div>
+</div>
+
+
+
+<hr class="line">
+
+    <div class="item">
+
+        <div id="details">
+        <h1>Check-in-date:</h1>
+      </div>
+        <div id="but">
+          <ion-datetime displayFormat="MMM-DD-YYYY " [(ngModel)]="inDate" ></ion-datetime>
+      </div>
+    </div>
+
+
+
+    <div class="item">
+
+        <div id="details">
+        <h1>Check-out-date:</h1>
+      </div>
+        <div id="but">
+            <ion-datetime displayFormat="MMM-DD-YYYY " [(ngModel)]="outDate"></ion-datetime>
+      </div>
+    </div>
+
+
+
+
+  
+    <hr class="line">
+</ion-content>
+<ion-footer>
+<div class="item2">
+
+    <div id="details2">
+      <h6>ROOM PRICE<br>R{{totalPrice}}</h6>
+  </div>
+
+    <div id="but2" (click)="bookRoom()">
+ <p>Book Now</p>
+  </div>
+</div>
+</ion-footer>

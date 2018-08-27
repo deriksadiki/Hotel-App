@@ -1,3 +1,34 @@
 page-home {
-
+.bigger{
+    font-size: 10em;
 }
+img{
+    -webkit-filter: blur(1.2px); /* Safari 6.0 - 9.0 */
+    filter: blur(1.2px);
+}
+.header{
+    height: 35%;
+}
+}
+
+
+.card-title {
+    position: absolute;
+    top: 36%;
+    font-size: 19px;
+    width: 100%;
+    font-weight: bold;
+    color: #fff;
+    text-transform: uppercase;
+    text-shadow: 0px 0px 15px black;
+  }
+
+  .card-subtitle {
+    font-size: 14px;
+    position: absolute;
+    top: 52%;
+    width: 100%;
+    color: #fff;
+    float: left;
+    text-transform: uppercase;
+  }

@@ -1,11 +1,31 @@
-<ion-header>
-  <ion-navbar>
-    <ion-title>
-      About
-    </ion-title>
-  </ion-navbar>
-</ion-header>
 
-<ion-content padding>
+
+<ion-content style="background-color:#222;">
+
+    <ion-card (click)="more('0', 'LUXE, 4 people')">
+      
+        <img src="../../assets/imgs/test1.jpg">
+        <div class="card-title2">DELUXE SUITE <p style="color: white;">R1200<span style="font-size: 9.5px; font-weight: 100">/night</span><br><span style="font-size: 9.5px; font-weight: 100">LUXE, 4 people</span></p></div>
+
+      </ion-card>
+
+      <ion-card (click)="more('1','BASE, 2 people')">
+          <img src="../../assets/imgs/bed21.jpg">
+          <div class="test">
+          <div class="card-title3">ASCOT SUITE <p style="color: white;">R1400<span style="font-size: 9.5px;">/night</span><br><span style="font-size: 9.5px; font-weight: 100">BASE, 2 people</span></p></div>
+        </div>
+        </ion-card>
+
+        <ion-card (click)="more('2','BASE, 2 people')">
+            <img src="../../assets/imgs/rm11.jpg">
+            <div class="card-title4">SUPERIOR SUITE<p style="color: white;">R1550<span style="font-size: 9.5px;">/night</span><br><span style="font-size: 9.5px; font-weight: 100">BASE, 2 people</span></p></div>
+
+          </ion-card>
+
+          <ion-card (click)="more('3','LUXE, 2 people')">
+              <img src="../../assets/imgs/hot11.jpg">
+              <div class="card-title5">PALM SUITE <p style="color: white;">R1500<span style="font-size: 9.5px;">/night</span><br><span style="font-size: 9.5px; font-weight: 100">LUXE, 2 people</span></p></div>
+
+            </ion-card>
 
 </ion-content>

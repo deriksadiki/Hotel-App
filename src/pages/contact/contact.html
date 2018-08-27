@@ -1,3 +1,6 @@
+
+
+
 <ion-header>
   <ion-navbar>
     <ion-title>
@@ -6,12 +9,13 @@
   </ion-navbar>
 </ion-header>
 
-<ion-content>
-  <ion-list>
-    <ion-list-header>Follow us on Twitter</ion-list-header>
+<ion-content >
+    <h1 class="animated infinite bounce delay-2s">Example</h1>
     <ion-item>
-      <ion-icon name="ionic" item-start></ion-icon>
-      @ionicframework
-    </ion-item>
-  </ion-list>
+        <ion-label>Date</ion-label>
+        <ion-datetime displayFormat="MMM DD, YYYY " [(ngModel)]="myDate"></ion-datetime>
+      </ion-item>
+    <button ion-button (click)="hide()">Hide Div</button>
+    <div *ngIf="hideMe"><ion-datetime displayFormat="MMM DD, YYYY " [(ngModel)]="myDate"></ion-datetime></div>
+
 </ion-content>
