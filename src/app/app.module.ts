@@ -18,7 +18,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { FirebaseProvider } from '../providers/firebase/firebase';
 import  {AngularFireAuthModule, AngularFireAuth} from 'angularfire2/auth';
 import { AngularFireDatabaseModule} from 'angularfire2/database';
-import {AngularFireModule} from 'angularfire2'
+import {AngularFireModule} from 'angularfire2';
+import {EmailComposer} from '@ionic-native/email-composer';
 
 
 @NgModule({
@@ -55,6 +56,7 @@ import {AngularFireModule} from 'angularfire2'
   providers: [
     StatusBar,
     SplashScreen,
+    EmailComposer,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     FirebaseProvider
   ]

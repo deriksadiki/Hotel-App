@@ -1,3 +1,65 @@
 page-contact {
+    .header{
+        height: 35%;
+    }
+    ion-card {
+        position: relative;
+        text-align: center;
+      }
+    
+      .card-title {
+        position: absolute;
+        top: 36%;
+        font-size: 1em;
+        width: 100%;
+        font-weight: bold;
+        color: #fff;
+        text-transform: capitalize;
+      }
+    
+      .card-subtitle {
+        font-size: 1em;
+        position: absolute;
+        top: 52%;
+        width: 100%;
+        color: #fff;
+      }
+      img{
+        -webkit-filter: blur(0.5px); /* Safari 6.0 - 9.0 */
+        filter: blur(0.9px);
+        height: 1000px;;
+    }
 
+    .item{
+        background-color:#222;
+        height: 20vh;
+        text-align: center;
+    }
+    #but{
+        float: right;
+        background-color:#222;
+        width: 50%;
+        height: 20vh;
+        color: white;
+        text-align: center;
+
+    }
+    #details{
+        float: left;
+        background-color: #222;
+        width: 50%;
+        height: 20vh;
+        color: white;
+    }
+    .textz{
+        font: 100;
+        font-size: 9.5px;
+    }
+    .but1{
+        width: 100%;
+        margin-left: -0px;;
+        height: 11vh;
+        border-radius: 0px 0px;
+        background-color: #0B2B35;
+    }
 }

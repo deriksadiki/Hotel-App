@@ -21,7 +21,7 @@ export class BookPage {
 
   ionViewDidLoad() {
     this.items =  this.fire.getBookings();
-
+    
   }
   selectItem(key){
     const confirm = this.alertCtrl.create({
@@ -46,7 +46,4 @@ export class BookPage {
 
   }
 
-  test(){
-    alert(this.items[0].inDate)
-  }
 }

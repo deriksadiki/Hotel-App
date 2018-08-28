@@ -1,21 +1,39 @@
 
 
 
-<ion-header>
-  <ion-navbar>
-    <ion-title>
-      Contact
-    </ion-title>
-  </ion-navbar>
+<ion-header style="background-color:#222;">
+    <ion-slides>
+
+       
+        <ion-slide>
+
+          <img src="../../assets/imgs/raoad.jpg">
+            <div class="card-title"><p style="text-transform: capitalize;"><i class="fa fa-bed"></i><br>Make Your holiday happen<br><span style="font-size: 0.5em;text-transform: capitalize">contact us for more information</span></p></div>
+            <div class="card-subtitle"><p></p></div>
+        </ion-slide>
+      
+      </ion-slides>
 </ion-header>
 
-<ion-content >
-    <h1 class="animated infinite bounce delay-2s">Example</h1>
-    <ion-item>
-        <ion-label>Date</ion-label>
-        <ion-datetime displayFormat="MMM DD, YYYY " [(ngModel)]="myDate"></ion-datetime>
-      </ion-item>
-    <button ion-button (click)="hide()">Hide Div</button>
-    <div *ngIf="hideMe"><ion-datetime displayFormat="MMM DD, YYYY " [(ngModel)]="myDate"></ion-datetime></div>
+<ion-content style="background-color:#222;">
 
-</ion-content>
+
+    <div class="item">
+
+        <div id="details">
+        <h2 style="font-size: 15px">VISIT US AT</h2>
+        <p class="textz">69 Victoria Road, 8040<br>Camps Bay<br>South Africa</p>
+      </div>
+        <div id="but">
+            <h2 style="font-size: 15px">CONTACT US</h2>
+            <p class="textz">hotel@paradehotel.co.za<br>+27 31 337 4565</p>
+      </div>
+    </div>
+    <button class="but1" ion-button (click)="invite()"><i style="text-align: center;"> <ion-icon ios="ios-person-add" md="md-person-add"></ion-icon><br>INVITE A FRIEND</i></button>
+
+    <button class="but1" ion-button (click)="hide()"><i style="text-align: center;"><ion-icon ios="ios-star-outline" md="md-star-outline"></ion-icon><br>RATE US</i></button>
+
+<div *ngIf="hideMe">
+    <ion-datetime displayFormat= "D"  max="2018-05-05" [(ngModel)]="qun"></ion-datetime>
+</div>
+  </ion-content>

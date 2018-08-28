@@ -4,6 +4,7 @@ import {User} from '../../models/user';
 import {FirebaseProvider}  from '../../providers/firebase/firebase';
 import {HomePage } from '../home/home';
 import { LoadingController } from 'ionic-angular';
+import { TabsPage } from '../tabs/tabs';
 /**
  * Generated class for the RegisterPage page.
  *
@@ -36,7 +37,7 @@ export class RegisterPage {
         subTitle: 'Welcome '+ data.email,
         buttons: ['OK']
       });
-      this.navCtrl.push(HomePage);
+      this.navCtrl.push(TabsPage);
       alert.present();
     },(error) =>{
       const alert = this.alertCtrl.create({

@@ -46,7 +46,7 @@ export class FirebaseProvider {
       this.authen.auth.createUserWithEmailAndPassword(email,passw).then(() =>{
         this.authen.authState.subscribe(data =>{
           this.userId =  data.uid;
-          this.dbPath =  'users/' + data.uid + '/' + 'details' ; 
+          this.dbPath =  'users/' + data.uid + '/' + 'Personal_details' ; 
           this.userRef = this.db.list(this.dbPath);
           this.userRef.push({
             name: name,

@@ -41,7 +41,7 @@ outDate;
 Quantity;
 totalPrice;
 qun;
-
+today;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public alertCtrl: AlertController, private fire: FirebaseProvider,private toastCtrl: ToastController) {
 
@@ -68,7 +68,6 @@ qun;
   }
 
 date(){
-  console.log(this.qun);
   var num2;
   var num1 = parseInt( moment(this.inDate).format('D'));
   num2 = moment(this.outDate).format('D');
@@ -77,11 +76,70 @@ date(){
 
 
 }
+
+
+test(){
+  var currentDate = new Date()
+  var day = currentDate.getDate();
+  var month = currentDate.getMonth() + 1;
+  var year = currentDate.getFullYear();
+  var today =  year + "-"+ '0' + month + "-" +  day; 
+  this.today =  today;
+  console.log(this.today);
+
+if (this.inDate > this.outDate){
+  const alert = this.alertCtrl.create({
+    title: 'Check-Out Date Invalid',
+    subTitle: 'The check-out date cannot be before the check-in date',
+    buttons: ['OK']
+  });
+  alert.present();
+}
+
+else if (this.inDate < this.today)
+{
+  const alert = this.alertCtrl.create({
+    title: 'Check-In Date Invalid',
+    subTitle: 'The check-in date cannot be before today!',
+    buttons: ['OK']
+  });
+  alert.present();
+}
+else if(this.inDate =="" || this.inDate == undefined){
+  const alert = this.alertCtrl.create({
+    title: 'Check-In Date Invalid',
+    subTitle: 'Please select a check-in date before making a booking!',
+    buttons: ['OK']
+  });
+  alert.present();
+}
+else if (this.outDate =="" || this.outDate == undefined){
+  const alert = this.alertCtrl.create({
+    title: 'Check-Out Date Invalid',
+    subTitle: 'Please select a check-out date before making a booking!',
+    buttons: ['OK']
+  });
+  alert.present();
+}
+else if (this.inDate == this.outDate){
+  const alert = this.alertCtrl.create({
+    title: 'Dates Invalid',
+    subTitle: 'The check-in and check-out date connot be the same!',
+    buttons: ['OK']
+  });
+  alert.present();
+}
+else{
+  this.bookRoom();
+}
+
+}
+
 bookRoom(){
   this.date();
   let alert = this.alertCtrl.create({
     title: 'Confirm Booking',
-    message: 'Are Yuou Sure YOu Want To Place This Booking? TOTAl R' + this.totalPrice,
+    message: 'Are You Sure You Want To Place This Booking? TOTAL R' + this.totalPrice,
     buttons: [
       {
         text: 'Cancel',
@@ -94,12 +152,8 @@ bookRoom(){
         text: 'OK',
         handler: () => {
 
-          var currentDate = new Date()
-          var day = currentDate.getDate();
-          var month = currentDate.getMonth() + 1;
-          var year = currentDate.getFullYear();
-          var today =  day + "/" + month + "/" + year;
-          this.fire.createBooking(this.totalPrice,this.pic1,this.type,this.roomtyrpe,this.inDate,this.outDate,today);
+        
+          this.fire.createBooking(this.totalPrice,this.pic1,this.type,this.roomtyrpe,this.inDate,this.outDate,this.today);
           const toast = this.toastCtrl.create({
             message: 'Your Booking Has Been Successfully Placed',
             showCloseButton: true,
