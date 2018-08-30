@@ -21,7 +21,7 @@ export class BookPage {
 
   ionViewDidLoad() {
     this.items =  this.fire.getBookings();
-    
+
   }
   selectItem(key){
     const confirm = this.alertCtrl.create({
@@ -31,7 +31,7 @@ export class BookPage {
         {
           text: 'Disagree',
           handler: () => {
-            console.log('Disagree clicked');
+
           }
         },
         {

@@ -59,27 +59,19 @@
         <h1>Check-in-date:</h1>
       </div>
         <div id="but">
-          <ion-datetime displayFormat="MMM-DD-YYYY " [(ngModel)]="inDate" ></ion-datetime>
+          <ion-datetime displayFormat="MMM-DD-YYYY "  min={{TodayDate}} max="2025-10-31" [(ngModel)]="inDate" ></ion-datetime>
       </div>
     </div>
 
-
-
     <div class="item">
-
         <div id="details">
         <h1>Check-out-date:</h1>
       </div>
         <div id="but">
-            <ion-datetime displayFormat="MMM-DD-YYYY " [(ngModel)]="outDate"></ion-datetime>
+            <ion-datetime displayFormat="MMM-DD-YYYY " min={{TodayDate}} max="2025-10-31" [(ngModel)]="outDate"></ion-datetime>
       </div>
     </div>
 
-
-
-
-  
-    <hr class="line">
 </ion-content>
 <ion-footer>
 <div class="item2">
@@ -92,6 +84,4 @@
  <p>Book Now</p>
   </div>
 </div>
-
-
 </ion-footer>

@@ -43,6 +43,9 @@ totalPrice;
 qun;
 today;
 
+
+TodayDate;
+
   constructor(public navCtrl: NavController, public navParams: NavParams, public alertCtrl: AlertController, private fire: FirebaseProvider,private toastCtrl: ToastController) {
 
     this.roomtyrpe =  this.roomType[this.room];
@@ -52,7 +55,13 @@ today;
     this.pic1 = "../../assets/imgs/" + this.pictures[this.room] + "1.jpg";
     this.pic2 = "../../assets/imgs/" + this.pictures[this.room] + "2.jpg";
     this.pic3 = "../../assets/imgs/" + this.pictures[this.room] + "3.jpg";
-
+    var currentDate = new Date()
+    var day = currentDate.getDate();
+    var month = currentDate.getMonth() + 1;
+    var year = currentDate.getFullYear();
+    var today =  year + "-"+ '0' + month + "-" +  day; 
+    this.today =  today;
+    this.TodayDate = this.today;
   }
 
 
@@ -68,24 +77,16 @@ today;
   }
 
 date(){
-  var num2;
-  var num1 = parseInt( moment(this.inDate).format('D'));
-  num2 = moment(this.outDate).format('D');
-  var num3 = num2 - num1;
-  this.totalPrice =  (this.price * num3);
-
+  var start = moment(this.inDate, "YYYY-MM-DD");
+  var end = moment(this.outDate, "YYYY-MM-DD");
+  var days = moment.duration(end.diff(start)).asDays();
+  this.totalPrice =  (this.price * days);
 
 }
 
 
 test(){
-  var currentDate = new Date()
-  var day = currentDate.getDate();
-  var month = currentDate.getMonth() + 1;
-  var year = currentDate.getFullYear();
-  var today =  year + "-"+ '0' + month + "-" +  day; 
-  this.today =  today;
-  console.log(this.today);
+
 
 if (this.inDate > this.outDate){
   const alert = this.alertCtrl.create({
@@ -145,14 +146,14 @@ bookRoom(){
         text: 'Cancel',
         role: 'cancel',
         handler: () => {
-          console.log('Cancel clicked');
+
         }
       },
       {
         text: 'OK',
         handler: () => {
 
-        
+     
           this.fire.createBooking(this.totalPrice,this.pic1,this.type,this.roomtyrpe,this.inDate,this.outDate,this.today);
           const toast = this.toastCtrl.create({
             message: 'Your Booking Has Been Successfully Placed',

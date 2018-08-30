@@ -101,7 +101,6 @@ getBookings():any{
       changes.map(c => ({ key: c.payload.key, ...c.payload.val() }))
     )
   );
-  console.log(this.Bookings);
   return this.Bookings;
 }
 
