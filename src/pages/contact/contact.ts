@@ -1,20 +1,40 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
-import { flatten } from '@angular/compiler';
 import { EmailComposer } from '@ionic-native/email-composer';
 import { AlertController } from 'ionic-angular';
+import {FirebaseProvider}  from '../../providers/firebase/firebase';
+
 @Component({
   selector: 'page-contact',
   templateUrl: 'contact.html'
 })
 export class ContactPage {
 hideMe = false;
-  constructor(public navCtrl: NavController,private emailComposer: EmailComposer,public alertCtrl: AlertController) {
+  constructor(public navCtrl: NavController,private emailComposer: EmailComposer,public alertCtrl: AlertController, private fire: FirebaseProvider) {
 
   }
 
   hide2(){
-   alert("rate us");
+    const prompt = this.alertCtrl.create({
+      title: 'Confirmation',
+      message: "Are you sure you want to sign out?",
+      buttons: [
+        {
+          text: 'Cancel',
+          handler: data => {
+          }
+        },
+        {
+          text: 'Agree',
+          handler: data => {
+            this.fire.logout();
+            window.location.reload();
+          }
+        }
+      ]
+    });
+    prompt.present();
+
   }
 
 

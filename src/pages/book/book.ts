@@ -20,7 +20,9 @@ export class BookPage {
   }
 
   ionViewDidLoad() {
-    this.items =  this.fire.getBookings();
+  this.fire.getBookings().then(data =>{
+  this.items =  data;
+    });
 
   }
   selectItem(key){

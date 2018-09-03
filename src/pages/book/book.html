@@ -10,7 +10,7 @@
   <ion-item  *ngFor="let i of items | async" (click)="selectItem(i.key)" no-border> 
         <ion-card>
             <img src={{i.picture}}>
-            <div class="card-title22">{{i.RoomName}}<p style="color: white;">{{i.price}}<span style="font-size: 9.5px;">/night</span><br><span style="font-size: 9.5px; font-weight: 100">{{i.RoomType}}</span><br>
+            <div class="card-title22">{{i.RoomName}}<p style="color: white;">R{{i.price}}<span style="font-size: 9.5px;"></span><br><span style="font-size: 9.5px; font-weight: 100">{{i.RoomType}}</span><br>
             <span style="font-size: 9.5px; font-weight: 100">DATE: {{i.inDate}}</span>
             </p></div>
 </ion-card>

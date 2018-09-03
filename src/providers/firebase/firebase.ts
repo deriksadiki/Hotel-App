@@ -5,6 +5,7 @@ import {AngularFireDatabase, AngularFireList} from 'angularfire2/database';
 import { Observable } from 'rxjs/Observable';
 import { map } from 'rxjs/operators';
 import { error } from '@firebase/database/dist/esm/src/core/util/util';
+import { AuthTokenProvider } from '@firebase/database/dist/esm/src/core/AuthTokenProvider';
 
 
 
@@ -23,11 +24,13 @@ export class FirebaseProvider {
   dbPath;
   test;
   userId;
+  state;
   constructor(private authen : AngularFireAuth, private db: AngularFireDatabase) {
 
   }
 
   login(email, passw){
+
     return new Promise ((accpt, rej)=>{
       this.results = this.authen.auth.signInWithEmailAndPassword(email,passw).then(()=>{
          this.results = this.authen.authState.subscribe(data =>{
@@ -67,6 +70,8 @@ export class FirebaseProvider {
   createBooking(prc, pic, type, name, ind, outd, dt){
 
       return new Promise ((accpt, rej) =>{
+        this.authen.authState.subscribe(data =>{
+          this.userId =  data.uid;
         this.dbPath =  'Bookings/' + this.userId ; 
         this.userRef = this.db.list(this.dbPath);
         this.userRef.push({
@@ -80,6 +85,7 @@ export class FirebaseProvider {
         }); 
         return (accpt)  
       })
+      })
   }
 
   updateBoooking(){
@@ -87,23 +93,49 @@ export class FirebaseProvider {
   }
 
   deleteBooking(key){
+    this.authen.authState.subscribe(data =>{
+      this.userId =  data.uid;
     this.dbPath =  'Bookings/' + this.userId; 
     this.userRef = this.db.list(this.dbPath);
-    this.userRef.remove(key);
+    this.userRef.remove(key)})
   }
-
+  getuserID():any{
+    var x;
+   return x = this.authen.authState.subscribe(data =>{
+ this.userId =  data.uid;
+    });
+  }
 getBookings():any{
-       this.dbPath =  'Bookings/' + this.userId; 
-      this.userRef = this.db.list(this.dbPath);
+return new Promise ((accpt, rej) =>{ 
+ this.authen.authState.subscribe(data =>{
+    this.userId =  data.uid;
+    this.dbPath =  'Bookings/' + this.userId; 
+    this.userRef = this.db.list(this.dbPath);
+    this.Bookings = this.userRef.snapshotChanges().pipe(
+    map(changes => 
+    changes.map(c => ({ key: c.payload.key, ...c.payload.val() }))));
+     accpt (this.Bookings);
+   });
+})
+}
 
-      this.Bookings = this.userRef.snapshotChanges().pipe(
-      map(changes => 
-      changes.map(c => ({ key: c.payload.key, ...c.payload.val() }))
-    )
-  );
-  return this.Bookings;
+getAuthState(){
+  return new Promise ((accpt, rej) =>{ 
+    this.authen.auth.onAuthStateChanged(user =>{
+      if (user){
+        this.state = 1;
+      }
+      else{
+        this.state = 0;
+      }
+      accpt(this.state);
+     });
+  })
+}
+
+
+logout(){
+  this.authen.auth.signOut();
 }
 
 }
-
-
