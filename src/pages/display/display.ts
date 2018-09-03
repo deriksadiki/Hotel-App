@@ -59,7 +59,7 @@ TodayDate;
     var day = currentDate.getDate();
     var month = currentDate.getMonth() + 1;
     var year = currentDate.getFullYear();
-    var today =  year + "-"+ '0' + month + "-" +  day; 
+    var today =  year + "-"+ '0' + month + "-" + "0" + day; 
     this.today =  today;
     this.TodayDate = this.today;
   }

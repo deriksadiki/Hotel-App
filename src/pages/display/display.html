@@ -49,7 +49,7 @@
     <h1>Quantity:</h1>
   </div>
     <div id="but">
-        <ion-datetime displayFormat= "D"  max="2018-03-03" [(ngModel)]="qun"></ion-datetime>
+        <ion-datetime displayFormat= "D"  max="2018-03-03" [(ngModel)]="qun" placeholder="0"></ion-datetime>
   </div>
 </div>
 
@@ -59,7 +59,7 @@
         <h1>Check-in-date:</h1>
       </div>
         <div id="but">
-          <ion-datetime displayFormat="MMM-DD-YYYY "  min={{TodayDate}} max="2025-10-31" [(ngModel)]="inDate" ></ion-datetime>
+          <ion-datetime displayFormat="MMM-DD-YYYY "  min={{today}} max="2025-10-31" [(ngModel)]="inDate" placeholder="n/a"></ion-datetime>
       </div>
     </div>
 
@@ -68,7 +68,7 @@
         <h1>Check-out-date:</h1>
       </div>
         <div id="but">
-            <ion-datetime displayFormat="MMM-DD-YYYY " min={{TodayDate}} max="2025-10-31" [(ngModel)]="outDate"></ion-datetime>
+            <ion-datetime displayFormat="MMM-DD-YYYY " min={{today}} max="2025-10-31" [(ngModel)]="outDate" placeholder="n/a"></ion-datetime>
       </div>
     </div>
 

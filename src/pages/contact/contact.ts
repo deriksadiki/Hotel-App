@@ -13,13 +13,8 @@ hideMe = false;
 
   }
 
-  hide(){
-    if (this.hideMe ==  false){
-      this.hideMe =  true;
-    }
-    else{
-      this.hideMe =  true;
-    }
+  hide2(){
+   alert("rate us");
   }
 
 
